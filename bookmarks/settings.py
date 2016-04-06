@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 	'social.apps.django_app.default',
+	'images',
 	
 )
 
@@ -75,9 +76,10 @@ TEMPLATES = [
 WSGI_APPLICATION = 'bookmarks.wsgi.application'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 AUTHENTICATION_BACKENDS = (
+'social.backends.facebook.Facebook2OAuth2',
 'django.contrib.auth.backends.ModelBackend',
 'account.authentication.EmailAuthBackend',
-'social.backends.facebook.Facebook2OAuth2',
+
 )
 
 # Database
@@ -112,6 +114,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 SOCIAL_AUTH_FACEBOOK_KEY = '212239429147020' # Facebook App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = '5500b774684a0c761b51541990f42fa2' # Facebook App Secret
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
