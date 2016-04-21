@@ -115,7 +115,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 SOCIAL_AUTH_FACEBOOK_KEY = '212239429147020' # Facebook App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = '5500b774684a0c761b51541990f42fa2' # Facebook App Secret
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
-
+ABSOLUTE_URL_OVERRIDES = {
+'auth.user': lambda u: reverse_lazy('user_detail',
+args=[u.username])
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
